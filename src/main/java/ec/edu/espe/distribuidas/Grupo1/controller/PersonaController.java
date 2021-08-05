@@ -11,6 +11,7 @@
 package ec.edu.espe.distribuidas.Grupo1.controller;
 
 import ec.edu.espe.distribuidas.Grupo1.dto.PersonaTelefonoRQ;
+import ec.edu.espe.distribuidas.Grupo1.service.PersonaNumeroTelefonoService;
 import ec.edu.espe.distribuidas.Grupo1.service.PersonaService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -31,10 +32,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/persona/")
 public class PersonaController {
     
-    private final PersonaService personaService;
+    private final PersonaNumeroTelefonoService personaNumeroTelefonoService;
 
-    public PersonaController(PersonaService personaService) {
-        this.personaService = personaService;
+    public PersonaController(PersonaNumeroTelefonoService personaNumeroTelefonoService) {
+        this.personaNumeroTelefonoService = personaNumeroTelefonoService;
     }
     
     
@@ -45,9 +46,8 @@ public class PersonaController {
         @ApiResponse(code = 404, message = "Not Found - No se encontro a la Persona")})
     @GetMapping(value = "{codPersona}")
     public ResponseEntity listarNumerosTelefonicosPersona(@PathVariable("codPersona") String codPersona){
-        try {
-            
-            return ResponseEntity.ok().build();
+        try {         
+            return ResponseEntity.ok(this.personaNumeroTelefonoService.listByNumerosTelefonicos(codPersona));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

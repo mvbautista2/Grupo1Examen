@@ -17,11 +17,13 @@ import ec.edu.espe.distribuidas.Grupo1.model.PersonaNumeroTelefono;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Diana
  */
+@Service
 public class PersonaNumeroTelefonoService {
 
     private final PersonaNumeroTelefonoRepository personaNumeroTelefonoRepo;
@@ -36,20 +38,9 @@ public class PersonaNumeroTelefonoService {
     }
 
     
-    public List<PersonaNumeroTelefono> listByNumerosTelefonicos(String numeroTelefonico) {
-        return this.personaNumeroTelefonoRepo.findByTelefono(numeroTelefono);
+    public List<PersonaNumeroTelefono> listByNumerosTelefonicos(Integer codigoPersona) {
+        return this.personaNumeroTelefonoRepo.findByPkCodigoPersonaOrderByCodigoTipoNumeroTelefonoAsc(codigoPersona);
     }
     
     
-    @Transactional
-    public void createNumeroTelefono(PersonaNumeroTelefono personaNumeroTelefono) {
-     Optional<PersonaNumeroTelefono> numeroTelefonoOpt = this.obtainByNumeroTelefono(personaNumeroTelefono.getnumeroTelefono());
-        if (!numeroTelefonoOpt.isPresent()) {
-            this.numeroTelefonoOpt.save(numeroTelefonoOpt);
-            
-        } else {
-            throw new CreateException("El Numero de telefeno : " 
-                    + inmueble.getCodigo() + " ya existe, por lo tanto no se puede crear");
-        }
-
 }

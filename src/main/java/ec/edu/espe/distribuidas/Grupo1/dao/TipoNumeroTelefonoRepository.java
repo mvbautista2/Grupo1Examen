@@ -20,5 +20,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author valen
  */
 public interface TipoNumeroTelefonoRepository extends JpaRepository<TipoNumeroTelefono, Integer> {
-    List<PersonaNumeroTelefono> findByPkCodigoPersonaOrderByCodigoTipoNumeroTelefonoAsc(Integer codigoPersona);
+    
 }

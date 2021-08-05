@@ -37,5 +37,5 @@ public class TipoNumeroTelefono implements Serializable {
     private String observacion;
 
     @Column(name = "TIPO", nullable = false, length = 3)
-    private String tipo;
+    private String tipo;    
 }

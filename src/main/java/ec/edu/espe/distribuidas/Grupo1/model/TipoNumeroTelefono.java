@@ -23,11 +23,11 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "tipo_numero_telefono")
+@Table(name = "PER_TIPO_NUMERO_TELEFONO")
 public class TipoNumeroTelefono implements Serializable {
 
     @Id
-    @Column(name = "COD_TIPO_NUMERO_PERSONA", nullable = false, length = 8)
+    @Column(name = "COD_TIPO_NUMERO_TELEFONO", nullable = false, length = 8)
     private String codigo;
 
     @Column(name = "NOMBRE", nullable = false, length = 100)

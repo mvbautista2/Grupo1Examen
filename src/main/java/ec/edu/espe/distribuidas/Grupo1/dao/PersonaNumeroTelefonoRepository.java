@@ -11,6 +11,7 @@
 package ec.edu.espe.distribuidas.Grupo1.dao;
 
 import ec.edu.espe.distribuidas.Grupo1.model.PersonaNumeroTelefono;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -19,6 +20,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface PersonaNumeroTelefonoRepository extends JpaRepository<PersonaNumeroTelefono, Integer> {
     
-    
+    List<PersonaNumeroTelefono> findByPkCodigoPersonaOrderByCodigoTipoNumeroTelefonoAsc(Integer codigoPersona);
     
 }

@@ -10,6 +10,7 @@
  */
 package ec.edu.espe.distribuidas.Grupo1.dao;
 
+import ec.edu.espe.distribuidas.Grupo1.model.TipoNumeroTelefono;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

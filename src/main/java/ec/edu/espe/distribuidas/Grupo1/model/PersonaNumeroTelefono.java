@@ -30,7 +30,7 @@ public class PersonaNumeroTelefono implements Serializable{
     private PersonaNumeroTelefonoPK id;
     
     @Column(name = "COD_TIPO_NUMERO_TELEFONO", nullable = false, length = 8)
-    private String codigoTipoNumeroTelefonico;
+    private String codigo;
     
     @Column(name = "PAIS", nullable = false, length = 30)
     private String pais;

@@ -10,19 +10,15 @@
  */
 package ec.edu.espe.distribuidas.Grupo1.service;
 
+import ec.edu.espe.distribuidas.Grupo1.controller.exception.CreateException;
 import ec.edu.espe.distribuidas.Grupo1.dao.PersonaNumeroTelefonoRepository;
 import ec.edu.espe.distribuidas.Grupo1.dao.PersonaRepository;
 import ec.edu.espe.distribuidas.Grupo1.dao.TipoNumeroTelefonoRepository;
 import ec.edu.espe.distribuidas.Grupo1.model.PersonaNumeroTelefono;
 import java.util.List;
-import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author Diana
- */
 @Service
 public class PersonaNumeroTelefonoService {
 
@@ -45,7 +41,12 @@ public class PersonaNumeroTelefonoService {
     
     @Transactional
     public void createNumeroTelefono(PersonaNumeroTelefono personaNumeroTelefono) {
-        
+        List<PersonaNumeroTelefono> personaNumeroTelefonos = this.personaNumeroTelefonoRepo.findByPKCodigoPersonaAndCodigo(personaNumeroTelefono.getId().getCodigoPersona(), personaNumeroTelefono.getCodigo());
+        if(personaNumeroTelefonos.isEmpty()){
+            this.personaNumeroTelefonoRepo.save(personaNumeroTelefono);
+        }else{
+            throw new CreateException("La persona ya tiene un número de este tipo");
+        }
     }
 
 }

@@ -45,7 +45,7 @@ public class PersonaController {
         @ApiResponse(code = 200, message = "Ok - Se encontraron los registros"),
         @ApiResponse(code = 404, message = "Not Found - No se encontro a la Persona")})
     @GetMapping(value = "{codPersona}")
-    public ResponseEntity listarNumerosTelefonicosPersona(@PathVariable("codPersona") String codPersona){
+    public ResponseEntity listarNumerosTelefonicosPersona(@PathVariable("codPersona") Integer codPersona){
         try {         
             return ResponseEntity.ok(this.personaNumeroTelefonoService.listByNumerosTelefonicos(codPersona));
         } catch (Exception e) {

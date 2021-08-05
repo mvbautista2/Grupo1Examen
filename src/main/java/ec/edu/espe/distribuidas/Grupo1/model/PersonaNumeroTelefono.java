@@ -16,6 +16,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import lombok.Data;
@@ -24,7 +25,7 @@ import lombok.Data;
 @Data
 @Table(name = "PER_PERSONA_NUMERO_TELEFONO", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"COD_TIPO_NUMERO_TELEFONICO", "NUMERO_TELEFONICO"})})
-public class PersonaNumeroTelefono implements Serializable{
+public class PersonaNumeroTelefono {
     
     @EmbeddedId
     private PersonaNumeroTelefonoPK id;
@@ -41,6 +42,7 @@ public class PersonaNumeroTelefono implements Serializable{
     @Column(name = "NUMERO_TELEFONICO", nullable = false, length = 20)
     private String numeroTelefonico;
     
+    @MapsId("codigoPersona")
     @JoinColumn(name = "COD_PERSONA", referencedColumnName = "COD_PERSONA", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Persona persona;

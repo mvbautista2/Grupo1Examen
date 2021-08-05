@@ -59,7 +59,7 @@ public class Persona {
     @Column(name = "APELLIDO2", nullable = false, length = 50)
     private String apellido2;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "PER_PERSONA")    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")    
     private List<PersonaNumeroTelefono> numerosDeTelefono;
 
 }

@@ -23,7 +23,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "PER_PERSONA_NUMERO_TELEFONO", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"COD_TIPO_NUMERO_TELEFONICO", "NUMERO_TELEFONICO"})})
+    @UniqueConstraint(columnNames = {"COD_TIPO_NUMERO_TELEFONO", "NUMERO_TELEFONICO"})})
 public class PersonaNumeroTelefono implements Serializable{
     
     @EmbeddedId

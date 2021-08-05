@@ -26,6 +26,6 @@ public class PersonaNumeroTelefonoPK implements Serializable{
     
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SEC_PERSONA_NUMERO_TELEFONICO", nullable = false)
-    private Integer secuenciaPersonaNumeroTelefonico;
+    private Integer secuencia;
     
 }

@@ -26,45 +26,40 @@ import javax.persistence.TemporalType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- *
- * @author bran-
- */
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "persona")
+@Table(name = "PER_PERSONA")
 public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cod_persona", nullable = false)
+    @Column(name = "COD_PERSONA", nullable = false)
     private Integer codigo;
 
-    @Column(name = "cod_empresa", nullable = false, length = 8)
-    private Integer empresa;
+    @Column(name = "COD_EMPRESA", nullable = false, length = 8)
+    private String empresa;
 
-    @Column(name = "fecha_ingreso", nullable = false)
+    @Column(name = "FECHA_INGRESO", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
-    @Column(name = "nombres", nullable = false, length = 250)
-    private Integer nombres;
+    @Column(name = "NOMBRES", nullable = false, length = 250)
+    private String nombres;
 
-    @Column(name = "nombre1", nullable = false, length = 50)
-    private Integer nombre1;
+    @Column(name = "NOMBRE1", nullable = false, length = 50)
+    private String nombre1;
 
-    @Column(name = "nombre2", nullable = false, length = 50)
-    private Integer nombre2;
+    @Column(name = "NOMBRE2", nullable = false, length = 50)
+    private String nombre2;
 
-    @Column(name = "apellido1", nullable = false, length = 50)
-    private Integer apellido1;
+    @Column(name = "APELLIDO1", nullable = false, length = 50)
+    private String apellido1;
 
-    @Column(name = "apellido2", nullable = false, length = 50)
-    private Integer apellido2;
+    @Column(name = "APELLIDO2", nullable = false, length = 50)
+    private String apellido2;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
-    @JsonManagedReference
-    private List<PersonaNumeroTelefono> numeros;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "PER_PERSONA")    
+    private List<PersonaNumeroTelefono> numerosDeTelefono;
 
 }

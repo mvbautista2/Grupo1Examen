@@ -43,4 +43,9 @@ public class PersonaNumeroTelefonoService {
     }
     
     
+    @Transactional
+    public void createNumeroTelefono(PersonaNumeroTelefono personaNumeroTelefono) {
+        
+    }
+
 }

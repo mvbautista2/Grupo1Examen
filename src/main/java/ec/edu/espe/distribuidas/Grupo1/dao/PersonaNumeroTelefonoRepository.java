@@ -22,4 +22,5 @@ public interface PersonaNumeroTelefonoRepository extends JpaRepository<PersonaNu
     
     List<PersonaNumeroTelefono> findByPkCodigoPersonaOrderByCodigoTipoNumeroTelefonoAsc(Integer codigoPersona);
     
+    List<PersonaNumeroTelefono> findByPKCodigoPersonaAndCodigo(Integer codigoPersona, String codigoTipoDireccion);
 }
